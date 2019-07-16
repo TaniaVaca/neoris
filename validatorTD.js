@@ -1,6 +1,5 @@
 /**
- * Mensajes de presentacion en vista y constantes de longitud
- * @type String
+ * Neoris -Tania Vaca, Luis Doncel
  */
 
 const TIPO_CEDULA = 'CÉDULA';
