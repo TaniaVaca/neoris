@@ -38,11 +38,11 @@ function validarCedulaEC(cedula) {
                 console.log('La cedula ingesada es correcta');
                 return true;
             } else {
-                console.log('La cedula ingesada es Incorrecta');
+                //console.log('La cedula ingesada es Incorrecta');
                 return false;
             }
         } else {
-            console.log('Ha ingresado mal su cedula');
+            //console.log('Ha ingresado mal su cedula');
             return false;
         }
     }
@@ -64,13 +64,13 @@ function validateRUC(numDoc){
              if (isNaN(n)) ok=0;
           }
           if (ok==0){
-             alert("No puede ingresar caracteres en el número");    
+             //alert("No puede ingresar caracteres en el número");    
              $('input#submitCreateAccount').prop('disabled', true); 
              return false;    
           }
                       
           if (numDoc.length < 10 ){              
-             alert('El número ingresado no es válido');      
+             //alert('El número ingresado no es válido');      
              $('input#submitCreateAccount').prop('disabled', true);  
              return false;          
           }
@@ -78,7 +78,7 @@ function validateRUC(numDoc){
           /* Los primeros dos digitos corresponden al codigo de la provincia */
           provincia = numDoc.substr(0,2);      
           if (provincia < 1 || provincia > numeroProvincias){           
-             alert('El código de la provincia (dos primeros dígitos) es inválido'); 
+             //alert('El código de la provincia (dos primeros dígitos) es inválido'); 
              $('input#submitCreateAccount').prop('disabled', true);  
              return false;  
           }
@@ -99,7 +99,7 @@ function validateRUC(numDoc){
           /* 6 para sociedades publicas */         
           /* menor que 6 (0,1,2,3,4,5) para personas naturales */ 
           if (d3==7 || d3==8){           
-             alert('El tercer dígito ingresado es inválido');    
+             //alert('El tercer dígito ingresado es inválido');    
              $('input#submitCreateAccount').prop('disabled', true);  
              return true;               
           }         
@@ -125,11 +125,11 @@ function validateRUC(numDoc){
           /* ahora comparamos el elemento de la posicion 10 con el dig. ver.*/                         
           if(nat == true){         
              if (digitoVerificador != d10){                          
-                alert('El número de documento ingresado es incorrecto.');
+                //alert('El número de documento ingresado es incorrecto.');
                 $('input#submitCreateAccount').prop('disabled', true);
                 return false;
              }else if (numDoc.length >10 && numDoc.substr(10,3) != '001' ){                    
-                alert('El número de documento ingresado debe terminar con 001');
+                //alert('El número de documento ingresado debe terminar con 001');
                 $('input#submitCreateAccount').prop('disabled', true);
                 return false;
              }else{
@@ -154,8 +154,8 @@ function verificarCedula() {
                     blnIndicador = 0;
                     alert(MENSAJE_ERROR_CEDULA_INVALIDA);
                 }else{
-            $('input#submitCreateAccount').prop('disabled', true);
-            blnIndicador = 0;                   
+                    $('input#submitCreateAccount').prop('disabled', true);
+                    blnIndicador = 0;                   
                 }       
                 break
              case TIPO_RUC:
