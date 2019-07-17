@@ -195,29 +195,10 @@ function verificarCedula() {
 $(function () {
     $('input#submitCreateAccount').prop('disabled', true);
   blnIndicador = 0;
-  /*if($('input#utpl_autorizo_manejo_datos_personales').is(':checked')){
-    alert("checked");
-    $('input#submitCreateAccount').prop('disabled', false);
-  }
-  else{
-    alert("Unchecked");
-    $('input#submitCreateAccount').prop('disabled', true);
-  }*/
     $('input#datatel_sin').blur(function () {
         verificarCedula();        
     });        
 });
-
-/*$('input#utpl_autorizo_manejo_datos_personales').change(function() {
-    alert("checked...");    
-});
-
-$(document).on('change', '.checkbox', function() {
-    if(this.checked) {
-      // checkbox is checked
-    alert("checked..."); 
-    }
-});*/
 
 $(function() {
     $("input[type='checkbox']").change(function() {
