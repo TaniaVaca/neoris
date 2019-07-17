@@ -10,6 +10,8 @@ const MENSAJE_ERROR_VACIO = 'Por favor ingrese su cedula';
 const MENSAJE_ERROR_CEDULA_INVALIDA = 'La cedula ingresada no es valida';
 const MENSAJE_ERROR_RUC_INVALIDO = 'El RUC ingresado no es valido';
 const MENSAJE_ERROR_IDENTIFICACION_NO_VALIDA = 'Tipo de Identificación no válida';
+const MENSAJE_ERROR_TAMANO_CEDULA_INVALIDO = 'El tamaño de la cédula no puede ser mayor a 11';
+const MENSAJE_ERROR_TAMANO_RUC_INVALIDO = 'El tamaño del RUC no puede ser mayor a 13';
 const TOTAL_DIGITOS_CEDULA = 10;
 var blnIndicador = 0;
 
@@ -149,24 +151,32 @@ function verificarCedula() {
     if (cedula.length > 0) {
         switch (identificacion.toString().toUpperCase()) {
             case TIPO_CEDULA:
-                if (!validarCedulaEC(cedula)) {
+                if(cedula.length > 13){
+                  alert(MENSAJE_ERROR_TAMANO_CEDULA_INVALIDO);
+                }else{
+                  if (!validarCedulaEC(cedula)) {
                     $('input#submitCreateAccount').prop('disabled', true);
                     blnIndicador = 0;
                     alert(MENSAJE_ERROR_CEDULA_INVALIDA);
-                }else{
-                    $('input#submitCreateAccount').prop('disabled', true);
-                    blnIndicador = 0;                   
-                }       
+                  }else{
+                      $('input#submitCreateAccount').prop('disabled', true);
+                      blnIndicador = 0;                   
+                  }  
+                }
                 break
              case TIPO_RUC:
-                if (!validateRUC(cedula)) {
+                if(cedula.length > 13){
+                  alert(MENSAJE_ERROR_TAMANO_RUC_INVALIDO);
+                }else{
+                  if (!validateRUC(cedula)) {
                     $('input#submitCreateAccount').prop('disabled', true);
                     blnIndicador = 0;
                     alert(MENSAJE_ERROR_CEDULA_INVALIDA);
-                }else{
-                        $('input#submitCreateAccount').prop('disabled', true);
-                        blnIndicador = 0;                   
-                }               
+                  }else{
+                          $('input#submitCreateAccount').prop('disabled', true);
+                          blnIndicador = 0;                   
+                  } 
+                }                  
                 break
             case TIPO_PASAPORTE:
                 $('input#submitCreateAccount').prop('disabled', false);
@@ -181,7 +191,7 @@ function verificarCedula() {
             default:
                 $('input#submitCreateAccount').prop('disabled', true);
                 blnIndicador = 0;
-                alert("ME FUI POR OTRO LADO")
+                //alert("ME FUI POR OTRO LADO")
                 alert(MENSAJE_ERROR_IDENTIFICACION_NO_VALIDA);        
         break;
         }
