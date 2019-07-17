@@ -146,13 +146,12 @@ function verificarCedula() {
     $('#pruebaj1_tipodedocumento').find("option:selected").each(function() {    
       identificacion = $(this).text();      
     });   
-    alert("SELECCIONE "+identificacion.toString().toUpperCase()) 
     if (cedula.length > 0) {
         switch (identificacion.toString().toUpperCase()) {
             case TIPO_CEDULA:
                 if (!validarCedulaEC(cedula)) {
                     $('input#submitCreateAccount').prop('disabled', true);
-          blnIndicador = 0;
+                    blnIndicador = 0;
                     alert(MENSAJE_ERROR_CEDULA_INVALIDA);
                 }else{
             $('input#submitCreateAccount').prop('disabled', true);
@@ -170,25 +169,25 @@ function verificarCedula() {
                 }               
                 break
             case TIPO_PASAPORTE:
-        $('input#submitCreateAccount').prop('disabled', false);
-                        blnIndicador = 1;
+                $('input#submitCreateAccount').prop('disabled', false);
+                blnIndicador = 1;
                 console.log('pasaporte');                
-        break
+            break
             case TIPO_VISA:
                 $('input#submitCreateAccount').prop('disabled', false);
-                        blnIndicador = 1;
+                blnIndicador = 1;
                 console.log('visa');                
                 break
             default:
                 $('input#submitCreateAccount').prop('disabled', true);
-        blnIndicador = 0;
+                blnIndicador = 0;
                 alert("ME FUI POR OTRO LADO")
                 alert(MENSAJE_ERROR_IDENTIFICACION_NO_VALIDA);        
         break;
         }
     } else {
         $('input#submitCreateAccount').prop('disabled', true);
-    blnIndicador = 0;
+        blnIndicador = 0;
         alert(MENSAJE_ERROR_VACIO);
     }
 }
