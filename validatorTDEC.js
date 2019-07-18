@@ -159,7 +159,7 @@ function verificarCedula() {
                     blnIndicador = 0;
                     alert(MENSAJE_ERROR_CEDULA_INVALIDA);
                   }else{
-                      $('input#submitCreateAccount').prop('disabled', true);
+                      $('input#submitCreateAccount').prop('disabled', false);
                       blnIndicador = 0;                   
                   }  
                 }
@@ -173,7 +173,7 @@ function verificarCedula() {
                     blnIndicador = 0;
                     alert(MENSAJE_ERROR_CEDULA_INVALIDA);
                   }else{
-                          $('input#submitCreateAccount').prop('disabled', true);
+                          $('input#submitCreateAccount').prop('disabled', false);
                           blnIndicador = 0;                   
                   } 
                 }                  
