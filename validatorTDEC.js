@@ -7,8 +7,8 @@ const TIPO_PASAPORTE = 'PASAPORTE';
 const TIPO_VISA = 'VISA';
 const TIPO_RUC = 'RUC';
 const MENSAJE_ERROR_VACIO = 'Por favor ingrese su cedula';
-const MENSAJE_ERROR_CEDULA_INVALIDA = 'La cedula ingresada no es valida';
-const MENSAJE_ERROR_RUC_INVALIDO = 'El RUC ingresado no es valido';
+const MENSAJE_ERROR_NUMERO_INVALIDO = 'El número ingresado no es valido';
+//const MENSAJE_ERROR_RUC_INVALIDO = 'El RUC ingresado no es valido';
 const MENSAJE_ERROR_IDENTIFICACION_NO_VALIDA = 'Tipo de Identificación no válida';
 const MENSAJE_ERROR_TAMANO_CEDULA_INVALIDO = 'El tamaño de la cédula no puede ser mayor a 11';
 const MENSAJE_ERROR_TAMANO_RUC_INVALIDO = 'El tamaño del RUC no puede ser mayor a 13';
@@ -157,7 +157,7 @@ function verificarCedula() {
                   if (!validarCedulaEC(cedula)) {
                     $('input#submitCreateAccount').prop('disabled', true);
                     blnIndicador = 0;
-                    alert(MENSAJE_ERROR_CEDULA_INVALIDA);
+                    alert(MENSAJE_ERROR_NUMERO_INVALIDO);
                   }else{
                       $('input#submitCreateAccount').prop('disabled', false);
                       blnIndicador = 0;                   
@@ -171,7 +171,7 @@ function verificarCedula() {
                   if (!validateRUC(cedula)) {
                     $('input#submitCreateAccount').prop('disabled', true);
                     blnIndicador = 0;
-                    alert(MENSAJE_ERROR_CEDULA_INVALIDA);
+                    alert(MENSAJE_ERROR_NUMERO_INVALIDO);
                   }else{
                           $('input#submitCreateAccount').prop('disabled', false);
                           blnIndicador = 0;                   
