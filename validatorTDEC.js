@@ -151,7 +151,7 @@ function verificarCedula() {
     if (cedula.length > 0) {
         switch (identificacion.toString().toUpperCase()) {
             case TIPO_CEDULA:
-                if(cedula.length > 13){
+                if(cedula.length > 11){
                   alert(MENSAJE_ERROR_TAMANO_CEDULA_INVALIDO);
                 }else{
                   if (!validarCedulaEC(cedula)) {
@@ -165,7 +165,7 @@ function verificarCedula() {
                 }
                 break
              case TIPO_RUC:
-                if(cedula.length > 13){
+                if(cedula.length > 14){
                   alert(MENSAJE_ERROR_TAMANO_RUC_INVALIDO);
                 }else{
                   if (!validateRUC(cedula)) {
