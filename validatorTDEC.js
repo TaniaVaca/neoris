@@ -12,6 +12,7 @@ const MENSAJE_ERROR_NUMERO_INVALIDO = 'El número ingresado no es valido';
 const MENSAJE_ERROR_IDENTIFICACION_NO_VALIDA = 'Tipo de Identificación no válida';
 const MENSAJE_ERROR_TAMANO_CEDULA_INVALIDO = 'El tamaño de la cédula no puede ser mayor a 11';
 const MENSAJE_ERROR_TAMANO_RUC_INVALIDO = 'El tamaño del RUC no puede ser mayor a 13';
+const MENSAJE_ERROR_TAMANO_INVALIDO = 'El tamaño ingresado no puede ser mayor a 13';
 const TOTAL_DIGITOS_CEDULA = 10;
 var blnIndicador = 0;
 
@@ -151,7 +152,7 @@ function verificarCedula() {
     if (cedula.length > 0) {
         switch (identificacion.toString().toUpperCase()) {
             case TIPO_CEDULA:
-                if(cedula.length > 11){
+                if(cedula.length < 11){
                   alert(MENSAJE_ERROR_TAMANO_CEDULA_INVALIDO);
                 }else{
                   if (!validarCedulaEC(cedula)) {
@@ -182,14 +183,26 @@ function verificarCedula() {
                //}                  
                 break
             case TIPO_PASAPORTE:
-                $('input#submitCreateAccount').prop('disabled', false);
-                blnIndicador = 1;
-                console.log('pasaporte');                
+                if(cedula.length < 14){
+                  $('input#submitCreateAccount').prop('disabled', true);
+                  blnIndicador = 0;
+                  alert(MENSAJE_ERROR_TAMANO_INVALIDO);
+                }else{
+                    $('input#submitCreateAccount').prop('disabled', false);
+                    blnIndicador = 1;
+                    console.log('pasaporte');
+                }
             break
             case TIPO_VISA:
-                $('input#submitCreateAccount').prop('disabled', false);
-                blnIndicador = 1;
-                console.log('visa');                
+                if(cedula.length < 14){
+                    $('input#submitCreateAccount').prop('disabled', true);
+                    blnIndicador = 0;
+                    alert(MENSAJE_ERROR_TAMANO_INVALIDO);
+                }else{
+                    $('input#submitCreateAccount').prop('disabled', false);
+                    blnIndicador = 1;
+                    console.log('visa');  
+                }
                 break
             default:
                 $('input#submitCreateAccount').prop('disabled', true);
