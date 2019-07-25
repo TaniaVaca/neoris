@@ -165,18 +165,21 @@ function verificarCedula() {
                 }
                 break
              case TIPO_RUC:
-                if(cedula.length > 14){
-                  alert(MENSAJE_ERROR_TAMANO_RUC_INVALIDO);
-                }else{
-                  if (!validateRUC(cedula)) {
-                    $('input#submitCreateAccount').prop('disabled', true);
-                    blnIndicador = 0;
-                    alert(MENSAJE_ERROR_NUMERO_INVALIDO);
-                  }else{
-                          $('input#submitCreateAccount').prop('disabled', false);
-                          blnIndicador = 0;                   
-                  } 
-                }                  
+                $('input#submitCreateAccount').prop('disabled', false);
+                    blnIndicador = 1;
+                    console.log('ruc');  
+                //if(cedula.length > 13){
+                 // alert(MENSAJE_ERROR_TAMANO_RUC_INVALIDO);
+               // }else{
+                //  if (!validateRUC(cedula)) {
+                //    $('input#submitCreateAccount').prop('disabled', true);
+                //    blnIndicador = 0;
+                //    alert(MENSAJE_ERROR_NUMERO_INVALIDO);
+                //  }else{
+                 //         $('input#submitCreateAccount').prop('disabled', false);
+                 //         blnIndicador = 0;                   
+                  //} 
+               //}                  
                 break
             case TIPO_PASAPORTE:
                 $('input#submitCreateAccount').prop('disabled', false);
