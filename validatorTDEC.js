@@ -152,7 +152,7 @@ function verificarCedula() {
     if (cedula.length > 0) {
         switch (identificacion.toString().toUpperCase()) {
             case TIPO_CEDULA:
-                if(cedula.length < 11){
+                if(cedula.length > 11){
                   alert(MENSAJE_ERROR_TAMANO_CEDULA_INVALIDO);
                 }else{
                   if (!validarCedulaEC(cedula)) {
@@ -183,7 +183,7 @@ function verificarCedula() {
                //}                  
                 break
             case TIPO_PASAPORTE:
-                if(cedula.length < 14){
+                if(cedula.length > 14){
                   $('input#submitCreateAccount').prop('disabled', true);
                   blnIndicador = 0;
                   alert(MENSAJE_ERROR_TAMANO_INVALIDO);
@@ -194,7 +194,7 @@ function verificarCedula() {
                 }
             break
             case TIPO_VISA:
-                if(cedula.length < 14){
+                if(cedula.length > 14){
                     $('input#submitCreateAccount').prop('disabled', true);
                     blnIndicador = 0;
                     alert(MENSAJE_ERROR_TAMANO_INVALIDO);
