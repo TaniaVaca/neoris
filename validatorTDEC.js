@@ -183,15 +183,21 @@ function verificarCedula() {
                //}                  
                 break
             case TIPO_PASAPORTE:
-                if(cedula.length > 14){
+                if (isNaN(parseInt(cedula))) {
+                  alert('El valor ingresado debe ser un n&uacute;merico'); 
                   $('input#submitCreateAccount').prop('disabled', true);
                   blnIndicador = 0;
-                  alert(MENSAJE_ERROR_TAMANO_INVALIDO);
                 }else{
-                    $('input#submitCreateAccount').prop('disabled', false);
-                    blnIndicador = 1;
-                    console.log('pasaporte');
-                }
+                  if(cedula.length > 14){
+                    $('input#submitCreateAccount').prop('disabled', true);
+                    blnIndicador = 0;
+                    alert(MENSAJE_ERROR_TAMANO_INVALIDO);
+                  }else{
+                      $('input#submitCreateAccount').prop('disabled', false);
+                      blnIndicador = 1;
+                      console.log('pasaporte');
+                  }
+                }  
             break
             case TIPO_VISA:
                 if(cedula.length > 14){
